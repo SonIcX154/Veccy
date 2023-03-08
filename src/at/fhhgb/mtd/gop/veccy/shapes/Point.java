@@ -8,4 +8,7 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+    public Rectangle boundingBox() {
+        return new Rectangle (this.x, this.y, 1, 1);
+    }
 }
