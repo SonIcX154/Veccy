@@ -34,5 +34,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javafx-base-19-win" level="project" />
+    <orderEntry type="library" name="Veccy-lib" level="project" />
   </component>
 </module>

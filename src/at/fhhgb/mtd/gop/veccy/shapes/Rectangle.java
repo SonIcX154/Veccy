@@ -1,10 +1,15 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
-public class Rectangle {
+
+public class Rectangle implements DrawableShape{
     private int x;
     private int y;
     private int width;
     private int height;
+    private Color fillColor;
+    private Color strokeColor;
 
     public Rectangle(int x, int y, int width, int height) {
         this.x = x;
@@ -28,5 +33,15 @@ public class Rectangle {
             }
         }
             return false;
+    }
+
+    @Override
+    public void draw(GraphicsContext graphicsContext) {
+        graphicsContext.setFill(Color.RED); // Setzt die Füllfarbe
+        graphicsContext.setStroke(Color.BLUE); // Setzt die Randfarbe
+// Tipp: Color.rgb(r, g, b) und Color.web(“#FFFFFF”) können auch verwendet werden!
+        graphicsContext.fillRect(x, y, width, height); // Füllt ein Rechteck
+        graphicsContext.strokeRect(x, y, width, height); // Rand eines Rechtecks
+
     }
 }

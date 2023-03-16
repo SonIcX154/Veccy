@@ -1,10 +1,14 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
+import javafx.scene.paint.Color;
+import javafx.scene.canvas.GraphicsContext;
 
-public class Line {
+public class Line implements DrawableShape{
     private int x1;
     private int y1;
     private int x2;
     private int y2;
+    private Color fillColor;
+    private Color strokeColor;
 
     public Line(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
@@ -23,5 +27,11 @@ public class Line {
         } else {
             return new Rectangle(x2, y2, x1 - x2, y1 - y2);
         }
+    }
+
+    @Override
+    public void draw(GraphicsContext graphicsContext) {
+
+
     }
 }
