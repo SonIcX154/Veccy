@@ -11,22 +11,23 @@ class Matrix3Test {
         Vector3 v = new Vector3(new double[]{5.0, 5.0, 1.0});
         Matrix3 t = TransformFactory.createTranslation(2, 3);
         Vector3 expected = new Vector3(new double[]{7.0, 8.0, 1.0});
-        assertEquals(expected, t.mult(v));
+        assertArrayEquals(expected.getValues(), t.mult(v).getValues());
     }
 
     @Test
-    void mult() {
+    void testMatrixMult() {
         Matrix3 m = new Matrix3();
         Matrix3 result = m.mult(m);
 
-        assertEquals(m.getValues(), result.getValues());
+        assertArrayEquals(m.getValues(), result.getValues());
     }
 
     @Test
-    void testMult() {
-    }
+    void testMatrixVectorMult() {
+        Matrix3 m = new Matrix3();
+        Vector3 v = new Vector3();
+        Vector3 result = m.mult(v);
 
-    @Test
-    void getValues() {
+        assertArrayEquals(v.getValues(), result.getValues());
     }
 }
