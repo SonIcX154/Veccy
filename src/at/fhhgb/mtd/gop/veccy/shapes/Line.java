@@ -9,6 +9,31 @@ public class Line implements DrawableShape{
     private int y2;
     private Color fillColor;
     private Color strokeColor;
+    public int getX1() {
+        return x1;
+    }
+
+    public int getY1() {
+        return y1;
+    }
+
+    public int getX2() {
+        return x2;
+    }
+
+    public int getY2() {
+        return y2;
+    }
+
+    public Color getFillColor() {
+        return fillColor;
+    }
+
+    public Color getStrokeColor() {
+        return strokeColor;
+    }
+
+
 
     public Line(int x1, int y1, int x2, int y2) {
         this.x1 = x1;

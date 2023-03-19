@@ -3,6 +3,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Point implements DrawableShape{
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     private int x;
     private int y;
     private Color fillColor;
