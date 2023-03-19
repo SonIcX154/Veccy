@@ -29,6 +29,7 @@ public class Circle implements DrawableShape{
         this.x = x;
         this.y = y;
         this.radius = radius;
+        this.strokeColor = Color.BLACK;
     }
 
     public int area() {

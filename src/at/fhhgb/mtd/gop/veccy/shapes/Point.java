@@ -18,7 +18,12 @@ public class Point implements DrawableShape{
 
     @Override
     public void draw(GraphicsContext graphicsContext) {
+        graphicsContext.setFill(Color.BLACK); // Set the fill color
+        graphicsContext.fillRect(x, y, 1, 1); // Fill a 1x1 rectangle (representing the point)
 
+    }
 
+    public void setFillColor(Color fillColor) {
+        this.fillColor = fillColor;
     }
 }

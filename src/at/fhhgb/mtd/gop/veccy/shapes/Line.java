@@ -17,7 +17,7 @@ public class Line implements DrawableShape{
         this.y2 = y2;
     }
 
-    public Rectangle BoundingBox() {
+    public Rectangle boundingBox() {
         if (x1 < x2 && y1 < y2) {
             return new Rectangle(x1, y1, x2 - x1, y2 - y1);
         } else if (x1 < x2 && y1 > y2) {
@@ -31,7 +31,13 @@ public class Line implements DrawableShape{
 
     @Override
     public void draw(GraphicsContext graphicsContext) {
+        graphicsContext.setStroke(Color.BLACK); // Set the stroke color
+        graphicsContext.setLineWidth(2); // Set the line width
+        graphicsContext.strokeLine(x1, y1, x2, y2); // Draw the line
 
+    }
 
+    public void setStrokeColor(Color strokeColor) {
+        this.strokeColor = strokeColor;
     }
 }
