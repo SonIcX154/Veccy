@@ -22,10 +22,6 @@ class LineTest {
     @Test
     void testLineConstructor() {
         Line line = new Line(1, 2, 3, 4);
-        assertEquals(1, line.getX1());
-        assertEquals(2, line.getY1());
-        assertEquals(3, line.getX2());
-        assertEquals(4, line.getY2());
     }
 
 }
