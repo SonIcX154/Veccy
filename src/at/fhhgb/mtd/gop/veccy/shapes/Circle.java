@@ -3,26 +3,41 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Circle implements DrawableShape{
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getRadius() {
-        return radius;
-    }
-
     private int x;
     private int y;
     private int radius;
     private Color fillColor;
     private Color strokeColor;
 
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getX() {
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+    public int getRadius() {
+        return radius;
+    }
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
+
+
     public void setFillColor(Color fillColor) {
         this.fillColor = fillColor;
+    }
+
+    public void setStrokeColor(Color strokeColor) {
+        this.strokeColor = strokeColor;
     }
 
     public Circle(int x, int y, int radius) {

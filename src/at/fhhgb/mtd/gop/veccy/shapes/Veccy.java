@@ -1,6 +1,10 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
 
 import at.fhhgb.mtd.gop.veccy.VeccyGUI;
+import at.fhhgb.mtd.gop.veccy.features.CircleFeature;
+import at.fhhgb.mtd.gop.veccy.features.LineFeature;
+import at.fhhgb.mtd.gop.veccy.features.PointFeature;
+import at.fhhgb.mtd.gop.veccy.features.RectangleFeature;
 import at.fhhgb.mtd.gop.veccy.model.CanvasModel;
 import javafx.application.Application;
 import javafx.scene.paint.Color;
@@ -35,5 +39,9 @@ public class Veccy extends Application {
         model.addShape(eye2);
         model.addShape(pupil1);
         model.addShape(pupil2);
+        model.addFeature(new PointFeature());
+        model.addFeature(new CircleFeature(model));
+        model.addFeature(new RectangleFeature(model));
+        model.addFeature(new LineFeature(model));
     }
 }

@@ -2,11 +2,12 @@ package at.fhhgb.mtd.gop.veccy.shapes;
 import javafx.scene.paint.Color;
 import javafx.scene.canvas.GraphicsContext;
 
-public class Point implements DrawableShape{
+public class Point extends Shape{
     private int x;
     private int y;
     private Color fillColor;
     private Color strokeColor;
+    private double[] getCoordinates;
 
     public Point(int x, int y) {
         this.x = x;

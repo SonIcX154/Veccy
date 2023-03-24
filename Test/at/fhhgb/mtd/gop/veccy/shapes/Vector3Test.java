@@ -1,5 +1,6 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
 
+import at.fhhgb.mtd.gop.veccy.math.Vector3;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

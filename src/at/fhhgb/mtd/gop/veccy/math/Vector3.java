@@ -1,4 +1,4 @@
-package at.fhhgb.mtd.gop.veccy.shapes;
+package at.fhhgb.mtd.gop.veccy.math;
 
 public class Vector3 {
     private double[] values = new double[3];

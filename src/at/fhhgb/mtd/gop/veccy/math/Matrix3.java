@@ -1,4 +1,4 @@
-package at.fhhgb.mtd.gop.veccy.shapes;
+package at.fhhgb.mtd.gop.veccy.math;
 
 import java.util.Arrays;
 

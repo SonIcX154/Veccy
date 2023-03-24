@@ -1,21 +1,39 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import at.fhhgb.mtd.gop.veccy.math.Vector3;
 
 
-public class Rectangle implements DrawableShape{
-    private int x;
-    private int y;
+public class Rectangle extends Shape{
     private int width;
     private int height;
-    private Color fillColor;
-    private Color strokeColor;
+    private double[] getCoordinates(){
+        Vector3 coordinates = new Vector3(new double[3]);
+    /*double[][] coordinates = new double[][];
+    coordinates [0][0] = co1[0];
+    coordinates
+
+    */
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
 
     public Rectangle(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        super(x, y);
     }
 
     public int area() {
@@ -23,7 +41,7 @@ public class Rectangle implements DrawableShape{
     }
 
     public Rectangle boundingBox() {
-        return new Rectangle(this.x, this.y, this.width, this.height);
+        return new Rectangle(this.x, this.y);
     }
 
     public boolean isOverlapping(Rectangle other) {
