@@ -51,8 +51,7 @@ public class RectangleFeature implements NamedFeature {
             } else {
                 currentRectangle.setWidth(Math.abs(x - originX));
                 currentRectangle.setHeight(Math.abs(y - originY));
-                currentRectangle.setX(Math.min(x, originX));
-                currentRectangle.setY(Math.min(y, originY));
+                currentRectangle.moveTo(Math.min(x, originX), Math.min(y, originY));
             }
         }
     }

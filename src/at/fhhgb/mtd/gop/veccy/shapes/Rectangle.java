@@ -1,19 +1,40 @@
 package at.fhhgb.mtd.gop.veccy.shapes;
+
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import at.fhhgb.mtd.gop.veccy.math.Vector3;
+import at.fhhgb.mtd.gop.veccy.math.Matrix3;
+import at.fhhgb.mtd.gop.veccy.math.TransformFactory;
 
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     private int width;
     private int height;
-    private double[] getCoordinates(){
-        Vector3 coordinates = new Vector3(new double[3]);
-    /*double[][] coordinates = new double[][];
-    coordinates [0][0] = co1[0];
-    coordinates
 
-    */
+    private double[][] getCoordinates() {
+        Vector3[] corners = new Vector3[4];
+        corners[0] = new Vector3(super.getX(), super.getY(), 1.0);
+        corners[1] = new Vector3(super.getX() + width, super.getY(), 1.0);
+        corners[2] = new Vector3(super.getX() + width, super.getY() + height, 1.0);
+        corners[3] = new Vector3(super.getX(), super.getY() + height, 1.0);
+
+        double[][] coordinates = new double[2][corners.length];
+        for (int i = 0; i < corners.length; i++) {
+            coordinates[0][i] = corners[i].getValues()[0];
+            coordinates[1][i] = corners[i].getValues()[1];
+        }
+
+        Matrix3 translation = TransformFactory.createTranslation(-super.getX() - width / 2, -super.getY() - height / 2);
+        Matrix3 inverseTranslation = TransformFactory.createTranslation(super.getX() + width / 2, super.getY() + height / 2);
+
+        if (this.transform != null) {
+            for (int i = 0; i < corners.length; i++) {
+                corners[i] = translation.mult(corners[i]);
+                corners[i] = this.transform.mult(corners[i]);
+                corners[i] = inverseTranslation.mult(corners[i]);
+            }
+
+        }
+        return coordinates;
     }
 
     public int getWidth() {
@@ -41,25 +62,21 @@ public class Rectangle extends Shape{
     }
 
     public Rectangle boundingBox() {
-        return new Rectangle(this.x, this.y);
+        return new Rectangle(super.getX(), super.getY(), this.width, this.height);
     }
 
     public boolean isOverlapping(Rectangle other) {
-        if(this.x < other.x && this.x + this.width > other.x || this.x > other.x && other.x + other.width > this.x){
-            if(this.y < other.y && this.y + this.height > other.y || this.y > other.y && other.y + other.height > this.y){
-                return true;
-            }
+        if (super.getX() < other.getX() && super.getX() + this.width > other.getX() || super.getX() > other.getX() && other.getX() + other.width > super.getX()) {
+            return super.getY() < other.getY() && super.getY() + this.height > other.getY() || super.getY() > other.getY() && other.getY() + other.height > super.getY();
         }
-            return false;
+        return false;
     }
 
     @Override
     public void draw(GraphicsContext graphicsContext) {
-        graphicsContext.setFill(Color.RED); // Setzt die Füllfarbe
-        graphicsContext.setStroke(Color.BLUE); // Setzt die Randfarbe
-// Tipp: Color.rgb(r, g, b) und Color.web(“#FFFFFF”) können auch verwendet werden!
-        graphicsContext.fillRect(x, y, width, height); // Füllt ein Rechteck
-        graphicsContext.strokeRect(x, y, width, height); // Rand eines Rechtecks
-
+        super.draw(graphicsContext);
+        double[][] coordinates = getCoordinates();
+        graphicsContext.fillPolygon(coordinates[0], coordinates[1], coordinates[0].length);
+        graphicsContext.strokePolygon(coordinates[0], coordinates[1], coordinates[0].length);
     }
 }

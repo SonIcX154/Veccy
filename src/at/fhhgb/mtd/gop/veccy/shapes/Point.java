@@ -10,6 +10,7 @@ public class Point extends Shape{
     private double[] getCoordinates;
 
     public Point(int x, int y) {
+        super(x, y);
         this.x = x;
         this.y = y;
     }

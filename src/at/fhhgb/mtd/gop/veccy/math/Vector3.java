@@ -18,6 +18,16 @@ public class Vector3 {
         values[1] = y;
         values[2] = z;
     }
+    public Vector3(Vector3[] vectors) {
+        if (vectors == null || vectors.length == 0) {
+            throw new IllegalArgumentException("Input array cannot be null or empty.");
+        }
+
+        Vector3 firstVector = vectors[0];
+        this.values[0] = firstVector.values[0];
+        this.values[1] = firstVector.values[1];
+        this.values[2] = firstVector.values[2];
+    }
 
     // Initializes this.values with the values from the parameter vector
     // (use the constructor with individual coordinates)

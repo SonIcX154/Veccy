@@ -22,6 +22,9 @@ public abstract class Shape implements DrawableShape {
         double[] y = position.getValues();
         return (int) y[1];
     }
+    public void moveTo(int x, int y) {
+        this.position= new Vector3(x,y,1.0);
+    }
     // Setzt die 'fillColor' Instanzvariable
     public void setFillColor(Color c) {
         this.fillColor = c;
