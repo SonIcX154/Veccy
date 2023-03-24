@@ -11,4 +11,11 @@ class PointTest {
         Rectangle pointBoundingBox = point.boundingBox();
         assertEquals(rectangle.area(), pointBoundingBox.area());
     }
+    @Test
+    void testPointConstructor() {
+        Point point = new Point(3, 4);
+        assertEquals(3, point.getX());
+        assertEquals(4, point.getY());
+    }
+
 }

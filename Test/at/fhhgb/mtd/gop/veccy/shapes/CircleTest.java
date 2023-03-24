@@ -20,4 +20,13 @@ class CircleTest {
         assertEquals(rectangle.area(), circleBoundingBox.area());
     }
 
+    @Test
+    void testCircleConstructor() {
+        Circle circle = new Circle(5, 7, 10);
+        assertEquals(5, circle.getX());
+        assertEquals(7, circle.getY());
+        assertEquals(10, circle.getRadius());
+    }
+
+
 }

@@ -34,4 +34,16 @@ class Matrix3Test {
 
         assertArrayEquals(v.getValues(), result.getValues());
     }
+    @Test
+    void testMatrix3DefaultConstructor() {
+        Matrix3 matrix = new Matrix3();
+        double[][] expectedValues = {
+                {1, 0, 0},
+                {0, 1, 0},
+                {0, 0, 1}
+        };
+        assertArrayEquals(expectedValues, matrix.getValues());
+    }
+
+
 }

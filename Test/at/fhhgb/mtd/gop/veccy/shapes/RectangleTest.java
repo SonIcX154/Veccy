@@ -24,4 +24,13 @@ class RectangleTest {
         assertFalse(rectangle.isOverlapping(rectangle3));
         assertTrue(rectangle.isOverlapping(rectangle4));
     }
+    @Test
+    void testRectangleConstructor() {
+        Rectangle rectangle = new Rectangle(1, 2, 3, 4);
+        assertEquals(1, rectangle.getX());
+        assertEquals(2, rectangle.getY());
+        assertEquals(3, rectangle.getWidth());
+        assertEquals(4, rectangle.getHeight());
+    }
+
 }
